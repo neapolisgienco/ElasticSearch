@@ -11,7 +11,13 @@ class FindGoodsRequest
     public function __construct(
         #[Assert\NotBlank]
         public readonly string $search,
+        public readonly bool $activeOnly,
+        #[Assert\Type('integer')]
+        #[Assert\PositiveOrZero]
+        public readonly ?int $minPrice = null,
+        #[Assert\Type('integer')]
+        #[Assert\PositiveOrZero]
+        public readonly ?int $maxPrice = null,
     ) {
     }
-
 }
